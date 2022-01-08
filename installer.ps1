@@ -1,12 +1,12 @@
 [System.Net.ServicePointManager]::SecurityProtocol = 'Tls12'
     # Forces TLS 1.2
-    
+
 Invoke-RestMethod https://raw.githubusercontent.com/couleurm/Write-Menu/master/Write-Menu.ps1 | Invoke-Expression
     # Imports the Write-Menu module
 
 <# -------------------------------------- Scoop check / install -------------------------------------- #>
 
-if (-Not(Get-Command scoop.cmd) -or (-Not($env:SCOOP))){
+if (-Not(Get-Command scoop.cmd -Ea Ignore) -or (-Not($env:SCOOP))){
 
     $Drives = Get-Volume | Where-Object {$PSItem.DriveLetter -notin '',$null} | ForEach-Object {"$($PSItem.DriveLetter):\ - $([Math]::Round($PSItem.SizeRemaining/1GB))GB Free"}
     $Message = 'Scoop is not installed, on what drive would you like to install it?'
