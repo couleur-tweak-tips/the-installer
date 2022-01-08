@@ -1,14 +1,8 @@
-$Protocols = [Enum]::GetNames([Net.SecurityProtocolType])
+[System.Net.ServicePointManager]::SecurityProtocol = 'Tls12'
+    # Forces TLS 1.2
+    
 Invoke-RestMethod https://raw.githubusercontent.com/couleurm/Write-Menu/master/Write-Menu.ps1 | Invoke-Expression
-
-if ($Protocols -contains 'Tls13'){[System.Net.ServicePointManager]::SecurityProtocol = 'Tls13'}
-elseif($Protocols -contains 'Tls12'){[System.Net.ServicePointManager]::SecurityProtocol = 'Tls12'}
-else{
-    Write-Host "Could not find an adequate security protocol (TLS 1.2+), here's the list of all available protocols:" -ForegroundColor DarkRed
-    $Protocols
-    Pause
-    exit
-}
+    # Imports the Write-Menu module
 
 <# -------------------------------------- Scoop check / install -------------------------------------- #>
 
