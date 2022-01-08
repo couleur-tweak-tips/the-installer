@@ -39,23 +39,22 @@ if ($args -in '',$null,'-verbose'){
 
     $script:ToInstall = @()
 
-    Write-Verbose "$PSScriptRoot" -Verbose
-
-    if ($PSScriptRoot){Invoke-Expression (Get-Content 'D:\GitHub\the-installer\apps.ps1' -Raw)}
+    if ($PSScriptRoot){Invoke-Expression (Get-Content 'D:\GitHub\the-installer\apps.ps1' -Raw)} # If ran locally (as .ps1 script), you can use your own ""bucket""
     else{Invoke-Expression (Invoke-RestMethod https://raw.githubusercontent.com/couleur-tweak-tips/the-installer/main/apps.ps1)}
     
+    Start-Sleep 1 # If an error occurs, leave some time to pause
+    Clear-Host
 
+
+        # This is gonna parses and format apps.ps1, which holds a hash table (think of it as json), then prompt the user
     ForEach ($Section in $apps.Keys){
 
-        $Applications = ForEach($app in $apps.$Section){
-            $app.Keys
-        }
+        $Applications = ForEach($app in $apps.$Section){$app.Keys}
         
-        $SelectedInSection = Write-Menu -Title ($Section -replace '_',' ') -Entries $Applications -MultiSelect
+        $SelectedApps = Write-Menu -Title $Section -Entries $Applications -MultiSelect
+                                        # If section name contains a _ replace it by a space (prettier)
 
-        ForEach($SelectedApps in $SelectedInSection){
-            $ToInstall = $ToInstall + $apps.$Section.$SelectedApps
-        }
+        ForEach($SelectedApp in $SelectedApps){$ToInstall = $ToInstall + $apps.$Section.$SelectedApp}
     }
 
 }else{
@@ -69,17 +68,28 @@ if ($args -in '',$null,'-verbose'){
 
 <# -------------------------------------- Adding buckets if not already done + essentials -------------------------------------- #>
 
+$essentials = @{
+    'aria2c' = ('main/aria2c','accelerates downloads')
+    'git' = ('main/git','makes updating buckets faster')
+    '7z' = ('main/7zip','makes unzipping faster')
+}
+
 ForEach($app in ($essentials.keys)){
 
-    if (-Not(Get-Command $app -ErrorAction Ignore)){
+    $bin = $app
+    $manifestname = $essentials.$app[0]
+    $description = $essentials.$app[1]
+        # Give some context to the variables used
 
-        if ($ToInstall.Contains($essentials.$app)){
+    if (-Not(Get-Command $bin -ErrorAction Ignore)){
 
-            $ToInstall = $ToInstall | Where-Object {$PSItem -ne $essentials.$app} # Removes them from the install list if they're in here
+        if ($ToInstall.Contains($manifestname)){
+
+            $ToInstall = $ToInstall | Where-Object {$PSItem -ne $manifestname} # Removes them from the install list if they're in here (aka will be installed anyways)
         }
         
-        Write-Warning "Installing $app (not a dependencie but strongly recommended)"
-        scoop.cmd install $app
+        Write-Warning "Installing $manifestname ($description)"
+        scoop.cmd install $manifestname
 }
 }
 
@@ -110,11 +120,12 @@ if ($Scripts){
 
 ForEach ($Package in $ToInstall){
     $Count++
-    $Host.UI.RawUI.WindowTitle = "[$Count\$($ToInstall.Count)] - Installing $Package"
-    Write-Warning "Installing $Package"
+    $PackageName = $($Package -split '/' | Select-Object -Last 1)
+    $Host.UI.RawUI.WindowTitle = "[$Count/$($ToInstall.Count)] - Installing $PackageName"
+    Write-Warning "Installing $PackageName"
     scoop.cmd install $Package
 }
-<#
+<# Leaving this here for debugging (getting myself an array of selected apps quickly)
 $ToInstall = @(
 'extras/everything'
 'main/syncthing'
