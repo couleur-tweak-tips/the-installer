@@ -1,4 +1,4 @@
-$apps = @{
+$script:apps = @{
 
     'Tweaking, hardware, monitoring & benchmarking' = @{
 
@@ -27,7 +27,7 @@ $apps = @{
         #'Heroic (Epic Games replacement)' = 'utils/heroic-games-launcher'
     }
 
-    Disk_Stuff = @{
+    'Disk Stuff' = @{
 
         'Balena Etcher' = 'extras/etcher'
         UNetbootin = 'extras/UNetbootin'
@@ -167,7 +167,7 @@ $apps = @{
         ThisIsWin11 = 'extras/ThisIsWin11'
         PowerToys = 'extras/powertoys'
         EarTrumpet = 'extras/eartrumpet'
-        #Modern Flyouts = 'utils/modern-flyouts'
+        'ModernFlyouts' = 'extras/modernflyouts'
         #Lively = 'utils/lively'
         TaskbarX = 'extras/TaskbarX'
         TranslucentTB = 'extras/TranslucentTB'
@@ -230,7 +230,7 @@ $apps = @{
     }
     
     Miscellaneous = @{
-        
+
         'TeraCopy (non portable)' = 'nonportable/teracopy-np'
         WinDirStat = 'extras/windirstat'
         wiztree = 'extras/wiztree'
