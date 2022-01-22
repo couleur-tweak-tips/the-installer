@@ -11,9 +11,31 @@ The Installer is a user friendly frontend of [scoop](https://get.scoop.sh), a pa
 Open PowerShell and paste in the following codeblock:
 ```powershell
 [System.Net.ServicePointManager]::SecurityProtocol = 'Tls12' # Forces TLS 1.2
-Set-ExecutionPolicy Bypass -Scope Process -Force # Allows script to run
 Invoke-RestMethod https://git.io/J9GI7 | Invoke-Expression # Parses then executes the script
 ```
+
+## **How to use**
+
+#### **Setting up scoop**
+If you don't have Scoop installed, it'll ask you on what drive to install it, it's recommended to separate your OS' drive (typically C:\, where Windows is installed) with all of your programs' data.
+
+#### **Navigating through the installer**
+
+After setting up Scoop all you've got to do left is selected the programs you want to:
+
+* use your UP and DOWN arrow to navigate
+* SPACE to tick and untick
+* ENTER to go to the next page
+
+#### **Buckets**
+Not all apps are in one single bucket, a parser will retrieve all the buckets required and will install them
+
+After that all apps will be installed
+
+#### **Updating your apps**
+Now that your apps are installed you can check for updates on all of them by opening the terminal and sending ``scoop.cmd update``, ``scoop.cmd status`` to get the list of all apps available for update, then you can update each of them ``scoop.cmd update app1 app2 app3..`` or update everything: ``scoop.cmd update *``
+
+⚠ **Note an app cannot be updated if any of it's processes are running**
 
 # **A brief introduction to Scoop**
 Scoop is a package manager for Windows like [Chocolatey](https://chocolatey.org), or like Ubuntu's [apt-get](https://help.ubuntu.com/community/AptGet/Howto), each program is stored in a [bucket](https://github.com/ScoopInstaller/Main) as a [manifest]("D:\Scoop\buckets\extras\scripts\discord\disable-auto-update.ps1" "example manifest for Discord"). It is community ran and everyone can make their [own scoop bucket](https://github.com/couleur-tweak-tips/utils/tree/main/bucket).
