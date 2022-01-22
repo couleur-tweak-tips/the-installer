@@ -69,7 +69,7 @@ if ($args -in '',$null,'-verbose'){
 <# -------------------------------------- Adding buckets if not already done + essentials -------------------------------------- #>
 
 $essentials = @{
-    'aria2c' = ('main/aria2c','accelerates downloads')
+    'aria2c' = ('main/aria2','accelerates downloads')
     'git' = ('main/git','makes updating buckets faster')
     '7z' = ('main/7zip','makes unzipping faster')
 }
