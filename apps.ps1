@@ -16,6 +16,7 @@ $script:apps = @{
         'Rivatuner Statistics Server (RTSS)' = 'extras/rtss'
         ThrottleStop = 'extras/throttlestop'
         'Winaero Tweaker' = 'extras/winaero-tweaker'
+        HWInfo = 'extras/hwinfo'
         #procexp = 'extras/procexp'
     }
 
@@ -24,7 +25,7 @@ $script:apps = @{
         Steam = 'versions/steam'
         Uplay = 'versions/uplay'
         'Ubisoft Connect' = 'versions/ubisoftconnect'
-        #'Heroic (Epic Games replacement)' = 'utils/heroic-games-launcher'
+        'Heroic (Epic Games replacement)' = 'extras/heroic-games-launcher'
     }
 
     'Disk Stuff' = @{
@@ -66,7 +67,7 @@ $script:apps = @{
         VLC = 'extras/VLC'
         FFmpeg = 'main/ffmpeg'
         Audacity = 'extras/audacity'
-        Danser = 'utils/danser-go'
+        Danser = 'main/danser-go'
         blur = 'utils/blur'
         'MPC-HC' = 'extras/mpc-hc'
         Staxrip = 'extras/staxrip'
@@ -224,6 +225,7 @@ $script:apps = @{
         'OnlyOffice Desktop Editors' = 'extras/onlyoffice-desktopeditors'
         'LibreOffice (Stable)' = 'extras/libre-office-stable'
         'LaTeX (MikTeX)' = 'main/latex'
+        nano = 'main/nano'
         vim = 'main/vim'
         neovim = 'main/neovim'
         #'WPS Office Free' = 'utils/wps-office-free'
@@ -231,9 +233,10 @@ $script:apps = @{
     
     Miscellaneous = @{
 
+        Compactor = 'extras/compactor'
         'TeraCopy (non portable)' = 'nonportable/teracopy-np'
         WinDirStat = 'extras/windirstat'
-        wiztree = 'extras/wiztree'
+        WizTree = 'extras/wiztree'
         'Scoop Completion' = 'extras/scoop-completion'
         Filezilla = 'extras/filezilla'
         DeepL = 'extras/DeepL'
