@@ -17,7 +17,13 @@ $script:apps = @{
         ThrottleStop = 'extras/throttlestop'
         'Winaero Tweaker' = 'extras/winaero-tweaker'
         HWInfo = 'extras/hwinfo'
-        #procexp = 'extras/procexp'
+        'NVIDIA Profile Inspector (NPI)' = 'extras/nvidia-profile-inspector'
+        DevManView = 'nirsoft/devmanview'
+        NetworkLatencyView = 'nirsoft/networklatencyview'
+        ServiWin = 'nirsoft/serviwin'
+        'Dism++' = 'extras/dismplusplus'
+        sysinternals = 'extras/sysinternals'
+        'Snappy Driver Installer Origin' = 'extras/snappy-driver-installer-origin'
     }
 
     'Game Launchers' = @{
