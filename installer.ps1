@@ -97,7 +97,7 @@ $Buckets = Join-Path (Get-Item (Get-Command scoop.cmd).Source).Directory.Parent.
 
 ForEach ($knownbucket in [array](scoop.cmd bucket known)){
     if (($ToInstall -like "$knownbucket/*") -and (-Not(Test-Path (Join-Path $Buckets $knownbucket))) ){scoop.cmd bucket add $knownbucket}
-    if (($app -like "utils/*") -and (-Not(Test-Path (Join-Path $Buckets utils))) ){scoop.cmd bucket add utils 'https://github.com/couleur-tweak-tips/utils'}
+    if (($ToInstall -like "utils/*") -and (-Not(Test-Path (Join-Path $Buckets utils))) ){scoop.cmd bucket add utils 'https://github.com/couleur-tweak-tips/utils'}
 }
 
 <# -------------------------------------- Installing the manifests --------------------------------------#>
