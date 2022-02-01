@@ -59,6 +59,7 @@ $script:apps = @{
         Krita = 'extras/Krita'
         Cupscale = 'extras/cupscale'
         Irfanview = 'extras/irfanview'
+        JPEGView = 'extras/jpegview'
     }
 
     'Media (video/audio)' = @{
@@ -118,7 +119,6 @@ $script:apps = @{
     'Developping / Programming languages' = @{
 
         'Windows Terminal' = 'extras/windows-terminal'
-        'Windows Terminal Quake (Dropdown for wt)' = 'extras/windows-terminal-quake'
         'Notepad++' = 'extras/notepadplusplus'
         'Sublime Text' = 'extras/sublime-text'
         'VS Code' = 'extras/vscode'
