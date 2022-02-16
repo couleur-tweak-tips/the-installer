@@ -65,6 +65,7 @@ $script:apps = @{
     'Media (video/audio)' = @{
 
         #'AIO-Video' = 'utils/AIO-Video'
+        Smoothie = 'utils/smoothie'
         DiscordCompressor = 'utils/DiscordCompressor'
         'OBS Studio' = 'extras/OBS-Studio'
         LosslessCut = 'extras/LosslessCut'
