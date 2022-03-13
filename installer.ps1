@@ -6,7 +6,7 @@ Invoke-RestMethod https://raw.githubusercontent.com/couleurm/Write-Menu/master/W
 
 <# -------------------------------------- Scoop check / install -------------------------------------- #>
 
-if (Get-Command scoop.cmd -Ea Ignore){
+if (-Not(Get-Command scoop.cmd -Ea Ignore)){
 
     $Drives = Get-Volume | Where-Object {$PSItem.DriveLetter -notin '',$null} | ForEach-Object {"$($PSItem.DriveLetter):\ - $([Math]::Round($PSItem.SizeRemaining/1GB))GB Free"}
     $Message = 'Scoop is not installed, on what drive would you like to install it?'
