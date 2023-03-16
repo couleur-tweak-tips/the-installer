@@ -222,7 +222,7 @@ $script:apps = @{
         #'Roccat Swarm' = 'utils/roccat-swarm'
     }
 
-    Writting = @{
+    Writing = @{
 
         Obsidian = 'extras/obsidian'
         Notion = 'extras/notion'
