@@ -1,3 +1,7 @@
+> **Warning**
+>
+> This is deprecated for now, I prefer making PowerShell libraries that can do similar tasks to the-installer, [see TweakList](https://github.com/couleur-tweak-tips/TweakList).
+
 # ![](https://i.imgur.com/mebRfpP.png) **The Installer** - like [Ninite](https://ninite.com) but on crack
 * Tired of installing each of your programs each time you reinstall Windows?
 * Do you want to separate your OS from your program data so you can easily reinstall/break your Windows without wasting time? (separate portable partition)
